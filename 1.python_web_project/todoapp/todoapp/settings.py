@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todolist'
+    'todolist' #1-2 添加app应用
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'todoapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],  #添加 tempaltes 文件夹路径
+        'DIRS': [os.path.join(BASE_DIR, "templates")],  #1-2 添加 tempaltes 文件夹路径
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,12 +75,25 @@ WSGI_APPLICATION = 'todoapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# 1-2 使用mysql数据
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'todoapp',
+    'USER':'root',
+    'PASSWORD':'ll123456',
+    'HOST':'127.0.0.1',
+    'PORT':'3306',
     }
 }
+
 
 
 # Password validation
@@ -106,10 +119,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
-# 把英文改为中文
+# 1-2 把英文改为中文
 LANGUAGE_CODE = 'zh-hans'
 
-# TIME_ZONE = 'UTC'
+# 1-2 TIME_ZONE = 'UTC'
 # 把国际时区改为中国时区
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -124,7 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
 
-# 添加static文件路径
+# 1-2 添加static文件路径
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
