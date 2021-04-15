@@ -13,6 +13,7 @@ class Todolist(View):
         categories = Category.objects.all() #getting all categories with object manager
 
         return render(request, 'todo_list.html', {  "todos": todos,
+
                                                     "categories": categories})
 
     def post(self, request):
